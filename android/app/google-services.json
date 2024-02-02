@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "285705075204",
+    "project_id": "chatapp-firebased-d8f1b",
+    "storage_bucket": "chatapp-firebased-d8f1b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:285705075204:android:01c5f490ebf3ff8e1bd351",
+        "android_client_info": {
+          "package_name": "com.example.chatapp_firedbased"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAmaPlUqy49lzDyUGu8hTI6YOKVpt1vvEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
