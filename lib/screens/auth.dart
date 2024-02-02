@@ -1,11 +1,13 @@
 //auth.dart
 import 'dart:io';
 
+import 'package:chatapp_firedbased/provider/isLogin_provider.dart';
 import 'package:chatapp_firedbased/widgets/user_image_picker.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:provider/provider.dart';
 
 final _firebase = FirebaseAuth.instance;
 
@@ -22,6 +24,7 @@ class _AuthScreenState extends State<AuthScreen> {
   final _form = GlobalKey<FormState>();
 
   var _isLogin = true;
+  // var _isLogin = context.watch<IsLoginProvider>().value;
   var _enteredEmail = '';
   var _enteredPassword = '';
   var _enteredUsername = '';
@@ -183,6 +186,7 @@ class _AuthScreenState extends State<AuthScreen> {
                                 setState(() {
                                   _isLogin = !_isLogin;
                                 });
+                                // context.read<IsLoginProvider>().changeLogin();
                               },
                               child: Text(_isLogin
                                   ? 'Create an account'
