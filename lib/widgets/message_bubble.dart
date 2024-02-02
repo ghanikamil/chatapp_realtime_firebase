@@ -10,6 +10,7 @@ class MessageBubble extends StatelessWidget {
     required this.username,
     required this.message,
     required this.isMe,
+    this.image
   }) : isFirstInSequence = true;
 
   // Create a amessage bubble that continues the sequence.
@@ -17,6 +18,7 @@ class MessageBubble extends StatelessWidget {
     super.key,
     required this.message,
     required this.isMe,
+    this.image
   })  : isFirstInSequence = false,
         userImage = null,
         username = null;
@@ -36,6 +38,7 @@ class MessageBubble extends StatelessWidget {
   // Not required if the message is not the first in a sequence.
   final String? username;
   final String message;
+  final String? image;
 
   // Controls how the MessageBubble will be aligned.
   final bool isMe;
@@ -124,17 +127,31 @@ class MessageBubble extends StatelessWidget {
                       vertical: 4,
                       horizontal: 12,
                     ),
-                    child: Text(
-                      message,
-                      style: TextStyle(
-                        // Add a little line spacing to make the text look nicer
-                        // when multilined.
-                        height: 1.3,
-                        color: isMe
-                            ? Colors.black87
-                            : theme.colorScheme.onSecondary,
-                      ),
-                      softWrap: true,
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        if (image != null)
+                          Image.network(
+                            image!,
+                            width: double.infinity,
+                            fit: BoxFit.fitHeight,
+                          ),
+                        Container(
+                          padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                          child: Text(
+                            message,
+                            style: TextStyle(
+                              // Add a little line spacing to make the text look nicer
+                              // when multilined.
+                              height: 1.3,
+                              color: isMe
+                                  ? Colors.black87
+                                  : theme.colorScheme.onSecondary,
+                            ),
+                            softWrap: true,
+                          ),
+                        ),
+                      ],
                     ),
                   ),
                 ],
